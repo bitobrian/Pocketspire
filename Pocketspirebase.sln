@@ -1,0 +1,45 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35506.116 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pocketspirebase.AppHost", "Pocketspirebase.AppHost\Pocketspirebase.AppHost.csproj", "{4228DF64-26F7-468E-84F2-E5C66D7BB4B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pocketspirebase.ServiceDefaults", "Pocketspirebase.ServiceDefaults\Pocketspirebase.ServiceDefaults.csproj", "{FE437E39-4DA5-4963-AF77-342DC8F52905}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pocketspirebase.ApiService", "Pocketspirebase.ApiService\Pocketspirebase.ApiService.csproj", "{50027C1F-2D0C-445D-9497-D5023B9C4A38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pocketspirebase.Web", "Pocketspirebase.Web\Pocketspirebase.Web.csproj", "{A25C8042-C757-492E-AD70-DC3373964D4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pocketspire", "Pocketspire\Pocketspire.csproj", "{48C4FC55-1E7F-400F-8A45-97B77B8C055E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4228DF64-26F7-468E-84F2-E5C66D7BB4B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4228DF64-26F7-468E-84F2-E5C66D7BB4B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4228DF64-26F7-468E-84F2-E5C66D7BB4B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4228DF64-26F7-468E-84F2-E5C66D7BB4B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE437E39-4DA5-4963-AF77-342DC8F52905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE437E39-4DA5-4963-AF77-342DC8F52905}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE437E39-4DA5-4963-AF77-342DC8F52905}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE437E39-4DA5-4963-AF77-342DC8F52905}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50027C1F-2D0C-445D-9497-D5023B9C4A38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50027C1F-2D0C-445D-9497-D5023B9C4A38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50027C1F-2D0C-445D-9497-D5023B9C4A38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50027C1F-2D0C-445D-9497-D5023B9C4A38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A25C8042-C757-492E-AD70-DC3373964D4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A25C8042-C757-492E-AD70-DC3373964D4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A25C8042-C757-492E-AD70-DC3373964D4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A25C8042-C757-492E-AD70-DC3373964D4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48C4FC55-1E7F-400F-8A45-97B77B8C055E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48C4FC55-1E7F-400F-8A45-97B77B8C055E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48C4FC55-1E7F-400F-8A45-97B77B8C055E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48C4FC55-1E7F-400F-8A45-97B77B8C055E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

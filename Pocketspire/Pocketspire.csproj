@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <PackageId>Pocketspire</PackageId>
+	  <Version>0.1.1</Version>
+	  <Authors>bitobrian</Authors>
+	  <Company></Company>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting" Version="9.0.0" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<Content Include="Dockerfile">
+			<Pack>true</Pack>
+			<PackagePath>contentFiles\any\any\</PackagePath>
+			<PackageCopyToOutput>true</PackageCopyToOutput>
+		</Content>
+	</ItemGroup>
+
+
+</Project>

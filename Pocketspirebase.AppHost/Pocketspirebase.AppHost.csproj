@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Sdk Name="Aspire.AppHost.Sdk" Version="9.0.0" />
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsAspireHost>true</IsAspireHost>
+    <UserSecretsId>e3a79c97-2f78-46db-816f-a51bf0f7bb5a</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Pocketspirebase.ApiService\Pocketspirebase.ApiService.csproj" />
+    <ProjectReference Include="..\Pocketspirebase.Web\Pocketspirebase.Web.csproj" />
+    <ProjectReference Include="..\Pocketspire\Pocketspire.csproj" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<!-- The IsAspireProjectResource attribute tells .NET Aspire to treat this 
+       reference as a standard project reference and not attempt to generate
+       a metadata file -->
+		<ProjectReference Include="..\Pocketspire\Pocketspire.csproj"
+						  IsAspireProjectResource="false" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.0.0" />
+  </ItemGroup>
+
+</Project>
