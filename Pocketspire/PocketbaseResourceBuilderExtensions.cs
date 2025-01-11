@@ -21,6 +21,8 @@ public static class PocketbaseResourceBuilderExtensions
     public static IResourceBuilder<ContainerResource> AddPocketbaseContainer(
         this IDistributedApplicationBuilder builder,
         string name,
+        string superUserEmail,
+        string superUserPassword,
         bool? arm64cpu = false,
         int? exposedPort = null,
         string? pocketbaseVersion = "0.24.1")
@@ -30,9 +32,12 @@ public static class PocketbaseResourceBuilderExtensions
         if (path.Parent == null)
             throw new Exception("Could not find parent directory");
 
+        // TODO: ./pb/pocketbase superuser create $PB_SUPERUSER $PB_SUPERUSER_PASSWORD needs to run after serve starts
         return builder.AddDockerfile(name: $"pocketbase-{name}", path.Parent.FullName)
             .WithBuildArg("PB_VERSION", pocketbaseVersion ?? throw new ArgumentNullException(nameof(pocketbaseVersion)))
             .WithBuildArg("CPU_ARCH", arm64cpu.HasValue && arm64cpu.Value ? "arm64" : "amd64")
+            .WithEnvironment("PB_SUPERUSER", superUserEmail)
+            .WithEnvironment("PB_SUPERUSER_PW", superUserPassword)
             .WithHttpEndpoint(targetPort: 8080, port: exposedPort, name: $"pocketbase-{name}")
             .WithExternalHttpEndpoints();
     }
