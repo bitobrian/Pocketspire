@@ -22,4 +22,4 @@ RUN chmod +x pb-setup.sh
 
 EXPOSE 8080
 
-CMD ["/bin/sh", "-c", "./pb-setup.sh"]
+ENTRYPOINT ["/bin/sh", "-c", "./pb-setup.sh \"$@\"", "--"]

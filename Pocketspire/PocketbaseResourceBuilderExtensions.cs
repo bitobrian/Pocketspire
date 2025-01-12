@@ -10,9 +10,11 @@ namespace Pocketspire;
 public static class PocketbaseResourceBuilderExtensions
 {
     /// <summary>
-    /// Adds a Pocketbase container to the Aspire App Host.
+    /// Adds a Pocketbase container to the Aspire App Host. Creation of a superuser is optional for non-production environments. A link is generated at runtime to create a superuser otherwise.
     /// </summary>
     /// <param name="builder">The distributed application builder.</param>
+    /// <param name="superUserEmail">The email of the superuser. Not recommended for production environments.</param>
+    /// <param name="superUserPassword">The password of the superuser. Not recommended for production environments.</param>
     /// <param name="name">The name of the Pocketbase resource.</param>
     /// <param name="exposedPort">The port to expose for the Pocketbase container. Leave blank for a random port.</param>
     /// <param name="pocketbaseVersion">The version of Pocketbase to use. Default is "0.24.1".</param>
@@ -36,8 +38,8 @@ public static class PocketbaseResourceBuilderExtensions
         return builder.AddDockerfile(name: $"pocketbase-{name}", path.Parent.FullName)
             .WithBuildArg("PB_VERSION", pocketbaseVersion ?? throw new ArgumentNullException(nameof(pocketbaseVersion)))
             .WithBuildArg("CPU_ARCH", arm64cpu.HasValue && arm64cpu.Value ? "arm64" : "amd64")
-            .WithEnvironment("PB_SU", superUserEmail)
-            .WithEnvironment("PB_SU_PW", superUserPassword)
+            .WithArgs("PB_SU", superUserEmail!)
+            .WithArgs("PB_SU_PW", superUserPassword!)
             .WithHttpEndpoint(targetPort: 8080, port: exposedPort, name: $"pocketbase-{name}")
             .WithExternalHttpEndpoints();
     }
