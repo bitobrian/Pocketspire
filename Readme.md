@@ -27,8 +27,11 @@ var pocketbase = builder.AddPocketbaseContainer("pb");
 ```
 
 ### Parameters
+> Superuser credentials are required for initial setup but a link will also generate in the console for use during first-time setup. See the [pocketbase docs](https://pocketbase.io/docs) for more details.
 
 - **name**: The name of the instance. Appends to the name like: "pocketbase-{name}".
+- **superUserEmail**: The email for the super user.
+- **superUserPassword**: The password for the super user.
 - **arm64cpu** (optional): Use an ARM64 CPU. Default is `false`.
 - **exposedPort** (optional): The port to be exposed. Default is `null`.
 - **pocketbaseVersion** (optional): The version of PocketBase to use. Default is `"0.24.1"`.

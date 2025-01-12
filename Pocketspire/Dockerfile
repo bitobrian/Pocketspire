@@ -16,7 +16,10 @@ RUN unzip /tmp/pb.zip -d /pb/
 # uncomment to copy the local pb_hooks dir into the image
 # COPY ./pb_hooks /pb/pb_hooks
 
+COPY pb-setup.sh .
+
+RUN chmod +x pb-setup.sh
+
 EXPOSE 8080
 
-# start PocketBase
-CMD ["/pb/pocketbase", "serve", "--http=0.0.0.0:8080"]
+ENTRYPOINT ["/bin/sh", "-c", "./pb-setup.sh \"$@\"", "--"]
