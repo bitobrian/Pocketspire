@@ -1,0 +1,57 @@
+name: Packaging
+
+permissions:
+    contents: write
+    repository-projects: write
+    pages: write
+    id-token: write
+
+on:
+    workflow_dispatch:
+        inputs:
+            version:
+                description: 'Version to package'
+                required: true
+
+jobs:
+    package:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            
+            - name: Setup dotnet
+              uses: actions/setup-dotnet@v2
+              with:
+                dotnet-version: 9.0.x
+                    
+            - name: Build Project
+              run: dotnet build Pocketspire/Pocketspire.csproj -c Release
+
+            - name: Pack Project
+              run: dotnet pack Pocketspire/Pocketspire.csproj -c Release /p:PackageVersion=${{ github.event.inputs.version }} --no-build
+
+            - name: Push Package
+              run: dotnet nuget push Pocketspire/bin/Release/Pocketspire.${{ github.event.inputs.version }}.nupkg -k $API_KEY -s https://api.nuget.org/v3/index.json
+              env:
+                API_KEY: ${{ secrets.NUGET_KEY }}
+
+            - name: Create GitHub Release
+              id: create_release
+              uses: actions/create-release@v1
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                tag_name: ${{ github.event.inputs.version }}
+                release_name: Release ${{ github.event.inputs.version }}
+                draft: false
+                prerelease: false
+
+            - name: Upload Release Asset
+              uses: actions/upload-release-asset@v1
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                upload_url: ${{ steps.create_release.outputs.upload_url }}
+                asset_path: Pocketspire/bin/Release/Pocketspire.${{ github.event.inputs.version }}.nupkg
+                asset_name: Pocketspire.${{ github.event.inputs.version }}.nupkg
+                asset_content_type: application/zip
