@@ -18,8 +18,9 @@ RUN unzip /tmp/pb.zip -d /pb/
 
 COPY pb-setup.sh .
 
-RUN chmod +x pb-setup.sh
+#RUN chmod +x pb-setup.sh
 
 EXPOSE 8080
 
-ENTRYPOINT ["/bin/sh", "-c", "./pb-setup.sh \"$@\"", "--"]
+#ENTRYPOINT ["/bin/sh", "-c", "./pb-setup.sh \"$@\"", "--"]
+CMD ["./pb/pocketbase", "serve", "--http=0.0.0.0:8080"]

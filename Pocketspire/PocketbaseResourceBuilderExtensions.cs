@@ -34,12 +34,12 @@ public static class PocketbaseResourceBuilderExtensions
         if (path.Parent == null)
             throw new Exception("Could not find parent directory");
 
-        // TODO: ./pb/pocketbase superuser create $PB_SUPERUSER $PB_SUPERUSER_PASSWORD needs to run after serve starts
         return builder.AddDockerfile(name: $"pocketbase-{name}", path.Parent.FullName)
             .WithBuildArg("PB_VERSION", pocketbaseVersion ?? throw new ArgumentNullException(nameof(pocketbaseVersion)))
             .WithBuildArg("CPU_ARCH", arm64cpu.HasValue && arm64cpu.Value ? "arm64" : "amd64")
-            .WithArgs("PB_SU", superUserEmail!)
-            .WithArgs("PB_SU_PW", superUserPassword!)
+            //.WithArgs("PB_SU", superUserEmail!)
+            //.WithArgs("PB_SU_PW", superUserPassword!)
+            // .WithVolume(name: $"pocketbase-{name}", "/pb/pb_data")
             .WithHttpEndpoint(targetPort: 8080, port: exposedPort, name: $"pocketbase-{name}")
             .WithExternalHttpEndpoints();
     }
