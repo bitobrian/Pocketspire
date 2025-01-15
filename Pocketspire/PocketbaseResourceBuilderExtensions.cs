@@ -37,9 +37,9 @@ public static class PocketbaseResourceBuilderExtensions
         return builder.AddDockerfile(name: $"pocketbase-{name}", path.Parent.FullName)
             .WithBuildArg("PB_VERSION", pocketbaseVersion ?? throw new ArgumentNullException(nameof(pocketbaseVersion)))
             .WithBuildArg("CPU_ARCH", arm64cpu.HasValue && arm64cpu.Value ? "arm64" : "amd64")
-            //.WithArgs("PB_SU", superUserEmail!)
-            //.WithArgs("PB_SU_PW", superUserPassword!)
-            // .WithVolume(name: $"pocketbase-{name}", "/pb/pb_data")
+            .WithEnvironment("PB_SU", superUserEmail!)
+            .WithEnvironment("PB_SU_PW", superUserPassword!)
+            .WithVolume(name: $"pocketbase-{name}", "/pb/pb_data")
             .WithHttpEndpoint(targetPort: 8080, port: exposedPort, name: $"pocketbase-{name}")
             .WithExternalHttpEndpoints();
     }
