@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	  <PackageId>Pocketspire</PackageId>
-	  <Version>0.2.0</Version>
+	  <Version>0.2.1</Version>
 	  <Authors>bitobrian</Authors>
 	  <Company></Company>
   </PropertyGroup>
@@ -17,15 +17,6 @@
 
 	<ItemGroup>
 		<Content Include="Dockerfile">
-			<Pack>true</Pack>
-			<PackagePath>contentFiles\any\any\</PackagePath>
-			<PackageCopyToOutput>true</PackageCopyToOutput>
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Content>
-	</ItemGroup>
-
-	<ItemGroup>
-		<Content Include="pb-setup.sh">
 			<Pack>true</Pack>
 			<PackagePath>contentFiles\any\any\</PackagePath>
 			<PackageCopyToOutput>true</PackageCopyToOutput>
