@@ -4,7 +4,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <IsAspireHost>true</IsAspireHost>
@@ -21,13 +21,12 @@
 		<!-- The IsAspireProjectResource attribute tells .NET Aspire to treat this 
        reference as a standard project reference and not attempt to generate
        a metadata file -->
-		<ProjectReference Include="..\Pocketspire\Pocketspire.csproj"
-						  IsAspireProjectResource="false" />
+		<ProjectReference Include="..\Pocketspire\Pocketspire.csproj" IsAspireProjectResource="false" />
 	</ItemGroup>
 
 
 	<ItemGroup>
-    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.0.0" />
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="13.1.0" />
   </ItemGroup>
 
 </Project>
